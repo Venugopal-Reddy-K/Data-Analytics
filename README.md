@@ -25,9 +25,8 @@ On why to use a relational database for this case:
 
 - The data types are structured (we know before-hand the structure of the jsons we need to analyze, and where and how to extract and transform each field)
 - The amount of data we need to analyze is not big enough to require big data related solutions.
-- This structure will enable the analysts to aggregate the data efficiently
-- Ability to use SQL that is more than enough for this kind of analysis
-- We need to use JOINS for this scenario
+- This structure is designed to optimize queries on song play analysis
+
 
 ## Project structure
 
@@ -38,9 +37,9 @@ Files used on the project:
 4. **test.ipynb** displays the first few rows of each table to let you check your database.
 5. **etl.ipynb** reads and processes a single file from song_data and log_data and loads the data into your tables. 
 6. **etl.py** reads and processes files from song_data and log_data and loads them into your tables. 
-7. **README.md** current file, provides discussion on my project.
+7. **README.md** current file, provides discussion of the project.
 
-## Data Processing and Quality Checks
+## Data Processing
 
 Data is extracted from two types of JSON source files: song data from the [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/) and songplay data from user logs. The JSON files are read into pandas dataframes, processed and uploaded into the database using psycopg2. 
 
@@ -48,10 +47,10 @@ A number of steps clean the data and reduce the size of the database by removing
 * Songplays are identified by filtering for actions initiated from the 'NextSong' page. 
 * Timestamps are converted from UNIX time to datetime format.
 
-## How to Use
+## Steps to Use
 
-1. Run create_tables.py from terminal to set up the database and tables.
-2. Run etl.py from terminal to process and load data into the database.
+1. Run create_tables.py file in the Anaconda terminal to set up the database and tables.
+2. Run etl.py in the Anaconda terminal to process and load data into the database.
 3. Launch test.ipynb to run validation and example queries.
 
 ## Author 
