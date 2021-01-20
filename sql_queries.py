@@ -12,7 +12,7 @@ songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays(
     songplay_id SERIAL PRIMARY KEY,
     start_time TIMESTAMPTZ NOT NULL,
-    user_id INT,
+    user_id INT NOT NULL,
     level VARCHAR,
     song_id VARCHAR,
     artist_id VARCHAR,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS songplays(
 
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users(
-    user_id INT PRIMARY KEY NOT NULL,
+    user_id INT PRIMARY KEY,
     first_name VARCHAR,
     last_name VARCHAR,
     gender VARCHAR,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS users(
 
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs(
-    song_id VARCHAR PRIMARY KEY NOT NULL,
+    song_id VARCHAR PRIMARY KEY,
     title VARCHAR,
     artist_id VARCHAR,
     year INT,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS songs(
 
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists(
-    artist_id VARCHAR PRIMARY KEY NOT NULL,
+    artist_id VARCHAR PRIMARY KEY,
     name VARCHAR,
     location VARCHAR,
     latitude FLOAT,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS artists(
 
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time(
-    start_time TIMESTAMPTZ PRIMARY KEY NOT NULL,
+    start_time TIMESTAMPTZ PRIMARY KEY,
     hour INT,
     day INT,
     week INT,
